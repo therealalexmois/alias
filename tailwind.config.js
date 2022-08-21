@@ -33,6 +33,13 @@ module.exports = {
         "2xl": ["1.5rem", "29px"],
         "3xl": ["2rem", "39px"],
       },
+      spacing: {
+        15: "3.25rem",
+        25: "6.25rem",
+        26: "6.5rem",
+        74: "18.5rem",
+        160: "40rem",
+      }
     }
   },
   plugins: [],
