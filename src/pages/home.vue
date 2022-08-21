@@ -1,25 +1,28 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router"
-import welcomePNG from "@/assets/images/welcome.png"
+
+import ButtonContained from "@/ui/atoms/button-contained.vue"
+import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
+
+import welcomeMobilePNG from "@/assets/images/welcome-mobile.png"
+import welcomeTabletPNG from "@/assets/images/welcome-tablet.png"
 </script>
 
 <template>
-  <main class="relative space-y-10 px-4 py-6 w-full min-h-screen flex flex-col">
-    <img :src="welcomePNG" alt="Alias" />
-    <div class="space-y-5 w-full flex flex-col">
-      <RouterLink
-        to="/start"
-        class="w-full h-12 inline-flex items-center justify-center font-sans text-xl font-semibold leading-6 text-white bg-pink-500 rounded-[0.652rem]"
-        >Играть</RouterLink
-      >
-      <RouterLink
-        to="/rules"
-        class="w-full h-12 inline-flex items-center justify-center font-sans text-xl font-semibold leading-6 text-white bg-black rounded-[0.652rem] ring-1 ring-white"
-      >
-        Правила
-      </RouterLink>
-    </div>
-  </main>
+  <div class="container">
+    <main
+      class="relative space-y-10 px-4 py-6 w-full min-h-screen flex flex-col justify-end tablet:space-y-14 tablet:pb-16"
+    >
+      <picture>
+        <source media="(min-width: 768px)" :srcset="welcomeTabletPNG" />
+        <img :src="welcomeMobilePNG" alt="Alias" />
+      </picture>
+      <div class="space-y-5 w-full flex flex-col tablet:space-y-8">
+        <ButtonContained as="RouterLink" to="/start">Играть</ButtonContained>
+        <ButtonOutlined as="RouterLink" to="/rules">Правила</ButtonOutlined>
+      </div>
+    </main>
+  </div>
 </template>
 
 <style scoped></style>

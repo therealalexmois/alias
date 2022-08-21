@@ -38,7 +38,7 @@ function addTeam() {
         <h1 class="text-center">Выбор команды</h1>
       </div>
       <div class="space-y-5">
-        <p>Жми на текст для смены имени.</p>
+        <p>Жми на&nbsp;текст для смены имени.</p>
         <ul class="space-y-5 list-none">
           <li v-for="team in teams" :key="team.id">
             <TeamPreview :title="team.title" />
@@ -69,8 +69,9 @@ function addTeam() {
     <RouterLink
       to="/start"
       class="w-full h-12 inline-flex items-center justify-center font-sans text-xl font-semibold leading-6 text-white bg-pink-500 rounded-[0.652rem]"
-      >Далее</RouterLink
     >
+      Далее
+    </RouterLink>
   </main>
 </template>
 
