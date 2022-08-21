@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import TeamScreen from "@/components/team/team-screen.vue"
+import TeamsScreen from "@/components/teams/team-screen.vue"
 import ThemesScreen from "@/components/themes/themes-screen.vue"
+import ScoreboardScreen from "@/components/scoreboard/scoreboard-screen.vue"
+import WinnerScreen from "@/components/winner/winner-screen.vue"
 </script>
 
 <template>
-  <!-- <TeamScreen /> -->
-  <ThemesScreen />
+  <!-- <TeamsScreen /> -->
+  <!-- <ThemesScreen /> -->
+  <ScoreboardScreen />
+  <!-- <WinnerScreen /> -->
 </template>

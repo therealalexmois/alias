@@ -2,7 +2,7 @@
 import { ref } from "vue"
 import classNames from "classNames"
 
-import Avatar from "@/components/avatar.vue"
+import Avatar from "@/ui/atoms/avatar.vue"
 import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
 import IconAdd from "@/lib/icons/add.vue"
 import avatarSVG from "@/assets/images/avatars/avatar-1.svg"

@@ -2,11 +2,11 @@
 import { ref } from "vue"
 import { RouterLink } from "vue-router"
 
-import AddTeamForm from "@/components/add-team-form.vue"
-import TeamPreview from "@/components/team-preview.vue"
-
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import IconArrowBack from "@/lib/icons/arrow-back.vue"
+
+import AddTeamForm from "./add-team-form.vue"
+import TeamPreview from "./team-preview.vue"
 
 let id = 0 as number
 
@@ -63,7 +63,7 @@ function removeTeam(team: ITeam) {
           <p class="text-base tablet:text-xl">
             Перед началом игры дайте названия командам.
           </p>
-          <ul class="space-y-5 list-none tablet:space-y-6">
+          <ul class="space-y-4 list-none tablet:space-y-6">
             <li v-for="team in teams" :key="team.id">
               <TeamPreview :title="team.title" />
             </li>

@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import classNames from "classNames"
 
-import Avatar from "@/components/avatar.vue"
-
+import Avatar from "@/ui/atoms/avatar.vue"
 import IconClose from "@/lib/icons/close.vue"
-
 import avatarSVG from "@/assets/images/avatars/avatar-1.svg"
 
 type TProps = {
