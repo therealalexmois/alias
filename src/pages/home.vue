@@ -18,7 +18,7 @@ import welcomeTabletPNG from "@/assets/images/welcome-tablet.png"
         <img :src="welcomeMobilePNG" alt="Alias" />
       </picture>
       <div class="space-y-5 w-full flex flex-col tablet:space-y-8">
-        <ButtonContained as="RouterLink" to="/start">Играть</ButtonContained>
+        <ButtonContained as="RouterLink" to="/game">Играть</ButtonContained>
         <ButtonOutlined as="RouterLink" to="/rules">Правила</ButtonOutlined>
       </div>
     </main>

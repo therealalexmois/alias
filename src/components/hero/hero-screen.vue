@@ -4,8 +4,8 @@ import { RouterLink } from "vue-router"
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
 
-import catMobileSVG from "@/assets/images/start/cat-mobile.png"
-import catTabletSVG from "@/assets/images/start/cat-tablet.png"
+import catMobileSVG from "@/assets/images/hero/cat-mobile.png"
+import catTabletSVG from "@/assets/images/hero/cat-tablet.png"
 </script>
 
 <template>

@@ -11,12 +11,12 @@ import cardsTabletSVG from "@/assets/images/rules/cards-tablet.svg"
 <template>
   <div class="container">
     <main
-      class="relative py-6 space-y-6 w-full min-h-screen text-center tablet:space-y-10"
+      class="relative py-6 space-y-6 w-full min-h-screen text-center tablet:py-8 tablet:space-y-10"
     >
       <div class="relative flex items-center justify-center">
         <RouterLink
           to="/"
-          class="absolute left-0 top-1/2 w-8 h-8 inline-flex -translate-y-4"
+          class="absolute left-0 top-1/2 inline-flex -translate-y-1/2"
         >
           <IconArrowBack />
         </RouterLink>

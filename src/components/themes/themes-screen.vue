@@ -87,13 +87,13 @@ function handleSelect(id: number) {
 <template>
   <div class="container">
     <main
-      class="space-y-8 relative pt-6 pb-24 w-full min-h-screen flex flex-col justify-between text-center tablet:pb-26"
+      class="space-y-8 relative pt-6 pb-24 w-full min-h-screen flex flex-col justify-between text-center tablet:pt-8 tablet:pb-26"
     >
       <div class="space-y-8">
         <div class="relative flex items-center justify-center">
           <RouterLink
             to="/"
-            class="absolute left-0 top-1/2 w-8 h-8 inline-flex -translate-y-4"
+            class="absolute left-0 top-1/2 inline-flex -translate-y-1/2"
           >
             <IconArrowBack />
           </RouterLink>

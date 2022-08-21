@@ -8,7 +8,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const defaultClasses = ref(
-  "w-8 h-8 tablet:w-12 tablet:h-12 inline-flex text-black transition-opacity group-hover:text-black/75 group-focus:text-black/75",
+  "w-17 h-17 tablet:w-24 tablet:h-24 inline-flex text-white transition-opacity group-hover:text-white/75 group-focus:text-white/75",
 )
 
 const propsClasses = ref(props.class)
@@ -18,15 +18,15 @@ const classes = computed(() =>
 </script>
 <template>
   <svg
-    viewBox="0 0 32 32"
+    viewBox="0 0 68 68"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
     :class="classes"
   >
     <path
-      d="M22.0351 29L8 16L22.0351 3L24 4.8525L11.9649 16L24 27.1475L22.0351 29Z"
-      fill="white"
+      d="M26.03 51L9 34.7534L13.6695 30.2987L26.03 42.0906L52.3305 17L57 21.4547L26.03 51Z"
+      fill="currentColor"
     />
   </svg>
 </template>

@@ -47,13 +47,13 @@ function removeTeam(team: ITeam) {
 <template>
   <div class="container">
     <main
-      class="space-y-8 relative py-6 w-full min-h-screen flex flex-col justify-between text-center"
+      class="space-y-8 relative py-6 w-full min-h-screen flex flex-col justify-between text-center tablet:py-8"
     >
       <div class="space-y-8">
         <div class="relative flex items-center justify-center">
           <RouterLink
             to="/"
-            class="absolute left-0 top-1/2 w-8 h-8 inline-flex -translate-y-4"
+            class="absolute left-0 top-1/2 inline-flex -translate-y-1/2"
           >
             <IconArrowBack />
           </RouterLink>
@@ -71,7 +71,7 @@ function removeTeam(team: ITeam) {
           <AddTeamForm />
         </div>
       </div>
-      <ButtonContained as="RouterLink" to="/start">Далее</ButtonContained>
+      <ButtonContained as="RouterLink" to="/game">Далее</ButtonContained>
     </main>
   </div>
 </template>
