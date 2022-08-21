@@ -1,30 +1,59 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router"
+
 import IconArrowBack from "@/lib/icons/arrow-back.vue"
+import catsTopPNG from "@/assets/images/rules/cats-top.png"
+import catsMiddlePNG from "@/assets/images/rules/cats-middle.png"
+import cardsMobileSVG from "@/assets/images/rules/cards-mobile.svg"
+import cardsTabletSVG from "@/assets/images/rules/cards-tablet.svg"
+console.log("catsTopPNG", catsTopPNG)
 </script>
 
 <template>
-  <main class="relative px-4 py-6 w-full min-h-screen text-center">
-    <div class="relative flex items-center justify-center">
-      <RouterLink
-        to="/"
-        class="absolute left-0 top-1/2 w-8 h-8 inline-flex -translate-y-4"
-        ><IconArrowBack
-      /></RouterLink>
-      <h1 class="text-center">Правила</h1>
-    </div>
-    <p>Перед игрой необходимо разбиться на команды.</p>
-    <p>
-      Задача одного из игроков комады - обьъяснить появляющиеся на экране слова.
-      Задача остальных игроков - отгадать как можно больше слов в течении
-      заданного времени.
-    </p>
-    <p>
-      Если слово будет отгадано, следует нажать на розовую кнопку, а если нет -
-      нажать на белую. По истечении времени у команды есть возможность отгадать
-      последнее слово.
-    </p>
-  </main>
+  <div class="container">
+    <main
+      class="relative py-6 space-y-6 w-full min-h-screen text-center tablet:space-y-10"
+    >
+      <div class="relative flex items-center justify-center">
+        <RouterLink
+          to="/"
+          class="absolute left-0 top-1/2 w-8 h-8 inline-flex -translate-y-4"
+        >
+          <IconArrowBack />
+        </RouterLink>
+        <h1 class="text-center">Правила</h1>
+      </div>
+      <article
+        class="mx-auto space-y-6 w-full max-w-lg text-center tablet:space-y-8"
+      >
+        <div class="space-y-3 flex flex-col items-center tablet:space-y-4">
+          <img :src="catsTopPNG" alt="Cats" />
+          <p class="text-base tablet:text-xl">
+            Перед игрой необходимо разбиться на команды.
+          </p>
+        </div>
+        <div class="space-y-3 flex flex-col items-center tablet:space-y-4">
+          <img :src="catsMiddlePNG" alt="Cats" />
+          <p class="text-base tablet:text-xl">
+            Задача одного из игроков комады - обьъяснить появляющиеся на экране
+            слова. Задача остальных игроков - отгадать как можно больше слов в
+            течении заданного времени.
+          </p>
+        </div>
+        <div class="space-y-3 flex flex-col items-center tablet:space-y-4">
+          <picture class="-mx-16">
+            <source media="(min-width: 768px)" :srcset="cardsTabletSVG" />
+            <img :src="cardsMobileSVG" alt="Cards" />
+          </picture>
+          <p class="text-base tablet:text-xl">
+            Если слово будет отгадано, следует нажать на розовую кнопку, а если
+            нет - нажать на белую. По истечении времени у команды есть
+            возможность отгадать последнее слово.
+          </p>
+        </div>
+      </article>
+    </main>
+  </div>
 </template>
 
 <style scoped></style>

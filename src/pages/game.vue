@@ -5,7 +5,7 @@ import { RouterLink } from "vue-router"
 import TeamPreview from "@/components/team-preview.vue"
 import IconArrowBack from "@/lib/icons/arrow-back.vue"
 import IconAdd from "@/lib/icons/add.vue"
-import avatarSVG from "@/assets/avatars/avatar-1.svg"
+import avatarSVG from "@/assets/images/avatars/avatar-1.svg"
 
 let id = 0 as number
 

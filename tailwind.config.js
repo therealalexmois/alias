@@ -7,6 +7,13 @@ module.exports = {
     screens: {
       "tablet": "48rem",
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        "tablet": "4rem",
+      },
+    },
     fontFamily: {
       sans: "'Inter', sans-serif",
     },

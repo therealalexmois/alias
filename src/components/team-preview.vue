@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import avatarSVG from "@/assets/avatars/avatar-1.svg"
+import avatarSVG from "@/assets/images/avatars/avatar-1.svg"
 
 type TProps = {
   title: string
