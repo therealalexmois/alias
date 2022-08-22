@@ -8,9 +8,9 @@ import IconConfirm from "@/lib/icons/confirm.vue"
 import IconPause from "@/lib/icons/pause.vue"
 import IconPlay from "@/lib/icons/play.vue"
 import { Timer } from "@/lib/timer"
+import Timeline from "@/ui/molecules/timeline.vue"
 
-import GameTemplate from "./game-template.vue"
-import Timeline from "./timeline.vue"
+import GameTemplate from "./templates/game-template.vue"
 
 const score = ref(0)
 
