@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import classNames from "classNames"
+import clsx from "clsx"
 
 import Avatar from "@/ui/atoms/avatar.vue"
 
@@ -26,7 +26,7 @@ const props = defineProps<TProps>()
     >
       <p
         :class="
-          classNames(
+          clsx(
             'inline-flex grow',
             'font-sans text-base font-bold text-black',
             'bg-transparent border-none',

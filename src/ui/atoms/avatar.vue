@@ -8,7 +8,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const defaultClasses = ref(
-  "w-15 h-15 overflow-hidden object-fill rounded-full tablet:w-25 tablet:h-25",
+  "w-15 h-15 overflow-hidden shrink-0 object-fill rounded-full tablet:w-25 tablet:h-25",
 )
 
 const propsClasses = ref(props.class)

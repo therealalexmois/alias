@@ -1,0 +1,64 @@
+{
+  "themes": [
+    {
+      "id": 1,
+      "title": "Основа",
+      "slug": "common",
+      "chosen": true
+    },
+    {
+      "id": 2,
+      "title": "Еда",
+      "slug": "food",
+      "chosen": false
+    },
+    {
+      "id": 3,
+      "title": "Лето",
+      "slug": "summer",
+      "chosen": false
+    },
+    {
+      "id": 4,
+      "title": "Космос",
+      "slug": "space",
+      "chosen": false
+    },
+    {
+      "id": 5,
+      "title": "Профессии",
+      "slug": "professions",
+      "chosen": false
+    },
+    {
+      "id": 6,
+      "title": "18+",
+      "slug": "adult",
+      "chosen": false
+    },
+    {
+      "id": 7,
+      "title": "Кино",
+      "slug": "movies",
+      "chosen": false
+    },
+    {
+      "id": 8,
+      "title": "Природа",
+      "slug": "nature",
+      "chosen": false
+    },
+    {
+      "id": 9,
+      "title": "Мода",
+      "slug": "fashion",
+      "chosen": false
+    },
+    {
+      "id": 10,
+      "title": "Спорт",
+      "slug": "sports",
+      "chosen": false
+    }
+  ]
+}

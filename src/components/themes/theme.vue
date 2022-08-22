@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import classNames from "classNames"
+import clsx from "clsx"
 
 import IconDone from "@/lib/icons/done.vue"
 
@@ -16,7 +16,7 @@ const props = defineProps<TProps>()
     <div
       @click="onClick"
       :class="
-        classNames(
+        clsx(
           'relative',
           'w-40 h-40 flex items-center justify-center',
           'text-2xl font-semibold leading-none',

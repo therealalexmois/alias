@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import classNames from "classNames"
+import clsx from "clsx"
 
 import { mergeClasses } from "@/lib/css"
 
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const defaultClasses = ref(
-  classNames(
+  clsx(
     "w-full h-12 inline-flex items-center justify-center",
     "font-sans text-xl font-semibold leading-6 text-white",
     "bg-black rounded-[0.652rem] ring-1 ring-white",

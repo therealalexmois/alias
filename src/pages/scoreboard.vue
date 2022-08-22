@@ -8,7 +8,7 @@ import avatar1PNG from "@/assets/images/avatars/avatar-1.svg"
 // import avatar2PNG from "@/assets/images/avatars/avatar-2.png"
 // import avatar3PNG from "@/assets/images/avatars/avatar-3.png"
 
-import ScoreboardTeam from "./scoreboard-team.vue"
+import ScoreboardTeam from "@/components/scoreboard/scoreboard-team.vue"
 
 const { settings, teams } = useAppStore()
 </script>
@@ -53,7 +53,7 @@ const { settings, teams } = useAppStore()
         <p class="tablet:text-xl">Далее играют</p>
         <p class="text-2xl font-semibold tablet:text-3xl">Отважные котики</p>
       </div>
-      <ButtonContained>Играть</ButtonContained>
+      <ButtonContained as="RouterLink" to="/game">Играть</ButtonContained>
     </div>
   </main>
 </template>

@@ -1,29 +1,34 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import classNames from "classNames"
+import clsx from "clsx"
+
+import { useAppStore } from "@/stores/app"
 
 import Avatar from "@/ui/atoms/avatar.vue"
 import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
 import IconAdd from "@/lib/icons/add.vue"
 import avatarSVG from "@/assets/images/avatars/avatar-1.svg"
 
-const newTeam = ref("")
+const { addTeam } = useAppStore()
 
-function handleSubmit() {
-  console.log("value", newTeam)
+const title = ref("")
+
+function submit() {
+  addTeam(title.value)
+  title.value = ""
 }
 </script>
 <template>
-  <form @submit.prevent="handleSubmit" class="space-y-5 tablet:space-y-6">
+  <form @submit.prevent="submit" class="space-y-5 tablet:space-y-6">
     <div
       class="space-x-3 p-3 flex items-center bg-white rounded-[0.625rem] tablet:p-4 tablet:space-x-4"
     >
-      <Avatar :src="avatarSVG" alt="Avatar" />
+      <Avatar :src="avatarSVG" :alt="title" />
       <input
         autofocus
-        v-model="newTeam"
+        v-model="title"
         :class="
-          classNames(
+          clsx(
             'inline-flex grow',
             'font-sans text-base font-bold text-black',
             'bg-transparent border-none',
