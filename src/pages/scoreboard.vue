@@ -10,8 +10,6 @@ import avatar1PNG from "@/assets/images/avatars/avatar-1.svg"
 import ScoreboardTeam from "@/components/scoreboard/scoreboard-team.vue"
 
 const { teams, points, teamWillPlay, scores } = useGameStore()
-
-console.log("teamWillPlay", teamWillPlay)
 </script>
 <template>
   <main
