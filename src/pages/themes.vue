@@ -2,7 +2,7 @@
 import { useAppStore } from "@/stores/app"
 
 import GoBack from "@/components/go-back.vue"
-import Theme from "@/components/themes/theme.vue"
+import ThemesElement from "@/components/themes/themes-element.vue"
 
 import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
 
@@ -22,7 +22,7 @@ const { themes, chosenThemes, selectTheme } = useAppStore()
       <div class="mx-auto space-y-5 w-160 max-w-full tablet:space-y-8">
         <p class="text-base tablet:text-xl">Листай вниз</p>
         <div class="grid grid-cols-2 gap-6 tablet:gap-12">
-          <Theme
+          <ThemesElement
             v-for="theme in themes"
             :key="theme.id"
             :title="theme.title"
@@ -33,7 +33,7 @@ const { themes, chosenThemes, selectTheme } = useAppStore()
       </div>
     </div>
     <div class="fixed left-0 right-0 bottom-0 px-4 py-6 bg-black tablet:px-16">
-      <ButtonOutlined as="RouterLink" to="/scoreboard">Далее</ButtonOutlined>
+      <ButtonOutlined as="RouterLink" to="/start">Далее</ButtonOutlined>
     </div>
   </main>
 </template>

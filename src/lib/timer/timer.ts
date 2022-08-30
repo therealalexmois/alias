@@ -9,7 +9,9 @@ interface ITimerOptions {
   onPause?: (isPaused: boolean) => void
 }
 
-export function Timer(options: ITimerOptions) {
+// TODO: add create API
+// TODO: add check options
+export function timer(options: ITimerOptions) {
   const {
     duration = DEFAULT_DURATION,
     onUpdate,

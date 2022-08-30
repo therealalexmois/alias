@@ -3,7 +3,6 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "json/&&/*"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
-    "composite": true,
     "baseUrl": ".",
     "paths": {
       "json": ["json"],

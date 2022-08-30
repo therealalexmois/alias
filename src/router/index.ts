@@ -5,6 +5,7 @@ import IntroPage from "@/pages/intro.vue"
 import RulesPage from "@/pages/rules.vue"
 import TeamsPage from "@/pages/teams.vue"
 import ThemesPage from "@/pages/themes.vue"
+import StartsPage from "@/pages/starts.vue"
 import ScoreboardPage from "@/pages/scoreboard.vue"
 import GamePage from "@/pages/game.vue"
 import WinnerPage from "@/pages/winner.vue"
@@ -53,9 +54,9 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/scoreboard",
-    name: "scoreboard",
-    component: ScoreboardPage,
+    path: "/start",
+    name: "start",
+    component: StartsPage,
     meta: {
       transition: "slide-left",
     },
@@ -64,6 +65,14 @@ const routes: RouteRecordRaw[] = [
     path: "/game",
     name: "game",
     component: GamePage,
+    meta: {
+      transition: "slide-left",
+    },
+  },
+  {
+    path: "/scoreboard",
+    name: "scoreboard",
+    component: ScoreboardPage,
     meta: {
       transition: "slide-left",
     },

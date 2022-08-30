@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { useAppStore } from "@/stores/app"
 import { useGameStore } from "@/stores/game"
 
+import GoBack from "@/components/go-back.vue"
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import IconStarBordered from "@/lib/icons/star-bordered.vue"
 import avatar1PNG from "@/assets/images/avatars/avatar-1.svg"
@@ -9,9 +11,16 @@ import avatar1PNG from "@/assets/images/avatars/avatar-1.svg"
 
 import ScoreboardTeam from "@/components/scoreboard/scoreboard-team.vue"
 
-const { teams, points, teamWillPlay, scores } = useGameStore()
+const { settings, teams, chosenThemes, teamStartsFirst } = useAppStore()
+const gameStore = useGameStore()
 
-console.log("teamWillPlay", teamWillPlay)
+function handleClick() {
+  const settings = {
+    teams,
+    themes: chosenThemes,
+  }
+  gameStore.create(settings)
+}
 </script>
 <template>
   <main
@@ -19,13 +28,16 @@ console.log("teamWillPlay", teamWillPlay)
   >
     <div class="space-y-8">
       <div class="relative flex items-center justify-center">
+        <div class="absolute left-0 top-1/2 inline-flex -translate-y-1/2">
+          <GoBack />
+        </div>
         <h1 class="text-center">Баллы</h1>
         <div
           class="absolute right-0 top-1/2 -translate-y-1/2 space-x-1 inline-flex items-center"
         >
           <IconStarBordered class="tablet:w-12 tablet:h-12" />
           <span class="text-2xl font-semibold tablet:text-3xl">
-            {{ points }}
+            {{ settings.requiredPoints }}
           </span>
         </div>
       </div>
@@ -35,7 +47,7 @@ console.log("teamWillPlay", teamWillPlay)
             <ScoreboardTeam
               :title="team.title"
               :avatar="avatar1PNG"
-              :score="scores.get(team) ?? 0"
+              :score="0"
             />
           </li>
         </ul>
@@ -47,10 +59,12 @@ console.log("teamWillPlay", teamWillPlay)
       <div class="space-y-2 tablet:space-y-4">
         <p class="tablet:text-xl">Далее играют</p>
         <p class="text-2xl font-semibold capitalize tablet:text-3xl">
-          {{ teamWillPlay.title }}
+          {{ teamStartsFirst.title }}
         </p>
       </div>
-      <ButtonContained as="RouterLink" to="/game">Играть</ButtonContained>
+      <ButtonContained as="RouterLink" @click="handleClick" to="/game">
+        Играть
+      </ButtonContained>
     </div>
   </main>
 </template>

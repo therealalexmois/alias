@@ -28,7 +28,7 @@ const props = defineProps<TProps>()
         :class="
           clsx(
             'inline-flex grow',
-            'font-sans text-base font-bold text-black',
+            'font-sans text-base font-bold text-black capitalize',
             'bg-transparent border-none',
             'placeholder:text-black/25 transition-colors',
             'focus-within:outline-none focus-within:ring-0',

@@ -1,23 +1,31 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted } from "vue"
-import clsx from "clsx"
+import { ref, computed, watch, onMounted, onUnmounted } from "vue"
+import { useRouter } from "vue-router"
+
+import { useGameStore } from "@/stores/game"
+
+import GameTemplate from "@/components/game/game-template.vue"
+import Timer from "@/components/game/timer.vue"
+import Card from "@/components/game/card.vue"
 
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import IconReject from "@/lib/icons/reject.vue"
 import IconConfirm from "@/lib/icons/confirm.vue"
 import IconPause from "@/lib/icons/pause.vue"
 import IconPlay from "@/lib/icons/play.vue"
-import { Timer } from "@/lib/timer"
+import { timer } from "@/lib/timer"
 import Timeline from "@/ui/molecules/timeline.vue"
 
-import GameTemplate from "@/components/game/game-template.vue"
-
-const score = ref(0)
+const router = useRouter()
+const gameStore = useGameStore()
 
 const timerId = ref<number | null>(null)
-const humanReadableTime = ref<string | null>("01:00")
-const remainderTime = ref(60)
+// TODO: нормализовать humanReadableTime с помощью date-fns
+const humanReadableTime = ref<string>("00:05")
+const remainderTime = ref(10)
 const isPaused = ref(false)
+const isTimeEnded = ref(false)
+const ordinalWordNumber = ref(0)
 
 function handleTimerUpdate(
   __humanReadableTime: string,
@@ -28,15 +36,16 @@ function handleTimerUpdate(
 }
 
 function handleTimerEnd() {
-  console.log("Round ended")
+  isTimeEnded.value = true
 }
 
 function handleTimerPause(paused: boolean) {
   isPaused.value = paused
 }
 
-const timer = ref(
-  Timer({
+const round_timer = ref(
+  timer({
+    duration: gameStore.duration,
     onUpdate: handleTimerUpdate,
     onEnd: handleTimerEnd,
     onPause: handleTimerPause,
@@ -44,24 +53,63 @@ const timer = ref(
 )
 
 function handlePlayPauseClick() {
-  timer.value.pause()
+  round_timer.value.pause()
 }
 
 const progress = ref(0)
 
 function updateProgress(time: number) {
-  progress.value = 100 - (time / 60) * 100
+  progress.value = 100 - (time / gameStore.duration) * 100
 }
 
 watch(remainderTime, updateProgress)
 
 onMounted(() => {
-  timerId.value = timer.value.start()
+  timerId.value = round_timer.value.start()
 })
 
 onUnmounted(() => {
-  timer.value.clear(timerId.value)
+  round_timer.value.clear(timerId.value)
 })
+
+function increaseOrdinalWordNumberByOne() {
+  if (ordinalWordNumber.value + 1 === gameStore.wordsCount) {
+    ordinalWordNumber.value = 0
+  } else {
+    ordinalWordNumber.value = ordinalWordNumber.value + 1
+  }
+}
+
+function handleAccept() {
+  gameStore.increasePlayingTeamPointsByOne()
+  if (isTimeEnded.value) {
+    if (gameStore.winner) {
+      router.push("/winner")
+    } else {
+      gameStore.changeNextToPlay()
+      router.push("/scoreboard")
+    }
+  } else {
+    increaseOrdinalWordNumberByOne()
+  }
+}
+
+function handleReject() {
+  if (isTimeEnded.value) {
+    if (gameStore.winner) {
+      router.push("/winner")
+    } else {
+      gameStore.changeNextToPlay()
+      router.push("/scoreboard")
+    }
+  } else {
+    increaseOrdinalWordNumberByOne()
+  }
+}
+
+const displayWord = computed(() =>
+  gameStore.words.find((_word, idx) => idx === ordinalWordNumber.value),
+)
 </script>
 <template>
   <main
@@ -74,43 +122,33 @@ onUnmounted(() => {
             <IconPlay v-if="isPaused" />
             <IconPause v-else />
           </button>
-          <span class="text-2xl font-semibold tablet:text-4xl">
-            {{ humanReadableTime }}
+          <Timer :value="humanReadableTime" />
+          <span class="text-5xl font-bold tablet:text-7xl">
+            {{ gameStore.playingTeamScore }}
           </span>
-          <span class="text-5xl font-bold tablet:text-7xl">{{ score }}</span>
         </div>
         <Timeline :value="progress" />
       </template>
-      <div
-        :class="
-          clsx(
-            'relative h-60 w-full flex items-center justify-center bg-white rounded-[20px] tablet:h-64',
-            {
-              'blur-lg': isPaused,
-            },
-          )
-        "
-      >
-        <span class="text-4xl font-semibold text-black">Слон</span>
-        <small
-          class="absolute left-1/2 bottom-4 -translate-x-1/2 text-xl font-normal text-black"
-        >
-          Природа
-        </small>
-      </div>
+      <Card
+        v-if="displayWord"
+        :key="displayWord.id"
+        :isPaused="isPaused"
+        :title="displayWord.title"
+        :theme="displayWord.theme"
+      />
       <template v-slot:actions>
         <div class="space-x-6 flex tablet:space-x-10">
           <ButtonContained
-            as="RouterLink"
-            to="/winner"
+            type="button"
+            @click="handleReject"
             :class="'h-20 bg-white tablet:h-26'"
             :disabled="isPaused"
           >
             <IconReject />
           </ButtonContained>
           <ButtonContained
-            as="RouterLink"
-            to="/winner"
+            type="button"
+            @click="handleAccept"
             :class="'h-20 tablet:h-26'"
             :disabled="isPaused"
           >

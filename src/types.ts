@@ -9,3 +9,9 @@ export interface ITeam {
   id: number
   title: string
 }
+
+export interface IWord {
+  id: number
+  title: string
+  theme: string
+}
