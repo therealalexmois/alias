@@ -18,6 +18,7 @@ module.exports = {
     semi: "off",
     "semi-spacing": "off",
     "semi-style": "off",
+    "no-undef": "off",
     "prettier/prettier": [
       "error",
       {
