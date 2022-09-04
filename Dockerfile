@@ -15,7 +15,7 @@ COPY . .
 
 ENV NODE_ENV production
 
-RUN yarn build
+RUN npm run build-only
 
 FROM node:16-alpine AS runner
 WORKDIR /app
