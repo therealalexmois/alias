@@ -8,6 +8,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
 
+  const HOST = env.HOST ?? "localhost"
+  const PORT = Number(env.PORT) ?? 3000
+
   return {
     plugins: [vue(), vueJsx()],
     resolve: {
@@ -19,7 +22,8 @@ export default defineConfig(({ mode }) => {
       __APP_ENV__: env.APP_ENV,
     },
     server: {
-      port: Number(env.PORT),
+      host: HOST,
+      port: PORT,
     },
   }
 })
