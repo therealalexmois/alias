@@ -6,7 +6,6 @@
   body {
     @apply relative;
     @apply w-full;
-    @apply min-h-screen;
     @apply font-sans;
     @apply text-base;
     @apply font-normal;
@@ -21,6 +20,17 @@
     @apply text-2xl tablet:text-3xl;
     @apply font-semibold;
     @apply text-white;
+    @apply text-center;
+  }
+
+  .page {
+    @apply relative;
+    @apply w-full;
+    @apply h-screen;
+    @apply overflow-hidden;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-between;
     @apply text-center;
   }
 }

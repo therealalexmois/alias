@@ -4,10 +4,11 @@ import { useRouter } from "vue-router"
 
 import { useGameStore } from "@/stores/game"
 
-import GameTemplate from "@/components/game/game-template.vue"
 import Timer from "@/components/game/timer.vue"
 import Card from "@/components/game/card.vue"
 
+import BaseTemplate from "@/ui/templates/base-template.vue"
+import Header from "@/ui/organisms/header.vue"
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import IconReject from "@/lib/icons/reject.vue"
 import IconConfirm from "@/lib/icons/confirm.vue"
@@ -112,23 +113,33 @@ const displayWord = computed(() =>
 )
 </script>
 <template>
-  <main
-    class="space-y-8 relative mx-auto py-6 w-120 max-w-full min-h-screen flex flex-col justify-between text-center tablet:py-32"
-  >
-    <GameTemplate>
-      <template v-slot:header>
-        <div class="flex items-center justify-between">
-          <button @click="handlePlayPauseClick">
-            <IconPlay v-if="isPaused" />
-            <IconPause v-else />
-          </button>
-          <Timer :value="humanReadableTime" />
-          <span class="text-5xl font-bold tablet:text-7xl">
-            {{ gameStore.playingTeamScore }}
-          </span>
+  <BaseTemplate>
+    <template #header>
+      <div class="space-y-8 tablet:space-y-10">
+        <Header>
+          <template #left>
+            <button @click="handlePlayPauseClick">
+              <IconPlay v-if="isPaused" />
+              <IconPause v-else />
+            </button>
+          </template>
+          <template #middle>
+            <Timer :value="humanReadableTime" />
+          </template>
+          <template #right>
+            <div class="flex items-center justify-between">
+              <span class="text-5xl font-bold tablet:text-7xl">
+                {{ gameStore.playingTeamScore }}
+              </span>
+            </div>
+          </template>
+        </Header>
+        <div class="px-4">
+          <Timeline :value="progress" />
         </div>
-        <Timeline :value="progress" />
-      </template>
+      </div>
+    </template>
+    <div class="my-auto w-full">
       <Card
         v-if="displayWord"
         :key="displayWord.id"
@@ -136,26 +147,26 @@ const displayWord = computed(() =>
         :title="displayWord.title"
         :theme="displayWord.theme"
       />
-      <template v-slot:actions>
-        <div class="space-x-6 flex tablet:space-x-10">
-          <ButtonContained
-            type="button"
-            @click="handleReject"
-            :class="'h-20 bg-white tablet:h-26'"
-            :disabled="isPaused"
-          >
-            <IconReject />
-          </ButtonContained>
-          <ButtonContained
-            type="button"
-            @click="handleAccept"
-            :class="'h-20 tablet:h-26'"
-            :disabled="isPaused"
-          >
-            <IconConfirm />
-          </ButtonContained>
-        </div>
-      </template>
-    </GameTemplate>
-  </main>
+    </div>
+    <template #footer>
+      <div class="space-x-4 flex tablet:space-x-8">
+        <ButtonContained
+          type="button"
+          @click="handleReject"
+          :class="'h-20 bg-white tablet:h-26'"
+          :disabled="isPaused"
+        >
+          <IconReject />
+        </ButtonContained>
+        <ButtonContained
+          type="button"
+          @click="handleAccept"
+          :class="'h-20 tablet:h-26'"
+          :disabled="isPaused"
+        >
+          <IconConfirm />
+        </ButtonContained>
+      </div>
+    </template>
+  </BaseTemplate>
 </template>

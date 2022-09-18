@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseTemplate from "@/ui/templates/base-template.vue"
 import ButtonContained from "@/ui/atoms/button-contained.vue"
 import ButtonOutlined from "@/ui/atoms/button-outlined.vue"
 
@@ -7,9 +8,7 @@ import catTabletSVG from "@/assets/images/hero/cat-tablet.png"
 </script>
 
 <template>
-  <main
-    class="relative space-y-10 py-6 w-full min-h-screen flex flex-col justify-end tablet:space-y-14 tablet:pb-16"
-  >
+  <BaseTemplate>
     <div class="my-auto flex">
       <div class="shrink-0 w-[172px] h-[300px] tablet:w-80 tablet:h-[562px]">
         <picture>
@@ -24,7 +23,7 @@ import catTabletSVG from "@/assets/images/hero/cat-tablet.png"
         <p>Самое время поиграть в&nbsp;Alias!</p>
       </div>
     </div>
-    <div class="space-y-5 w-full flex flex-col tablet:space-y-8">
+    <template #footer>
       <div class="space-y-1 tablet:space-y-3">
         <ButtonOutlined as="RouterLink" to="/rules">
           Как играть?
@@ -36,8 +35,6 @@ import catTabletSVG from "@/assets/images/hero/cat-tablet.png"
         </p>
       </div>
       <ButtonContained as="RouterLink" to="/teams">Далее</ButtonContained>
-    </div>
-  </main>
+    </template>
+  </BaseTemplate>
 </template>
-
-<style scoped></style>

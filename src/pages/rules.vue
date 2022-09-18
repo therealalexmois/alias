@@ -1,21 +1,26 @@
 <script setup lang="ts">
 import GoBack from "@/components/go-back.vue"
 
+import BaseTemplate from "@/ui/templates/base-template.vue"
+import Header from "@/ui/organisms/header.vue"
+
 import catsTopPNG from "@/assets/images/rules/cats-top.png"
 import catsMiddlePNG from "@/assets/images/rules/cats-middle.png"
 import cardsMobileSVG from "@/assets/images/rules/cards-mobile.svg"
 import cardsTabletSVG from "@/assets/images/rules/cards-tablet.svg"
 </script>
 <template>
-  <main
-    class="relative py-6 space-y-6 w-full min-h-screen text-center tablet:py-8 tablet:space-y-10"
-  >
-    <div class="relative flex items-center justify-center">
-      <div class="absolute left-0 top-1/2 inline-flex -translate-y-1/2">
-        <GoBack />
-      </div>
-      <h1 class="text-center">Правила</h1>
-    </div>
+  <BaseTemplate>
+    <template #header>
+      <Header>
+        <template #left>
+          <GoBack />
+        </template>
+        <template #middle>
+          <h1 class="text-center">Правила</h1>
+        </template>
+      </Header>
+    </template>
     <article
       class="mx-auto space-y-6 w-full max-w-lg text-center tablet:space-y-8"
     >
@@ -46,5 +51,5 @@ import cardsTabletSVG from "@/assets/images/rules/cards-tablet.svg"
         </p>
       </div>
     </article>
-  </main>
+  </BaseTemplate>
 </template>

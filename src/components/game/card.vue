@@ -14,7 +14,7 @@ const props = defineProps<TProps>()
   <div
     :class="
       clsx(
-        'relative h-60 w-full flex items-center justify-center bg-white rounded-[20px] tablet:h-64',
+        'relative h-60 w-full max-w-full flex items-center justify-center bg-white rounded-[20px] tablet:h-64',
         {
           'blur-lg': isPaused,
         },
