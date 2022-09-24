@@ -26,6 +26,7 @@ const pageStyles = computed(() => ({
   height: height.value * 100 + "px",
 }))
 </script>
+
 <template>
   <div class="page" :style="pageStyles">
     <slot name="header" />

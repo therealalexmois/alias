@@ -112,6 +112,7 @@ const displayWord = computed(() =>
   gameStore.words.find((_word, idx) => idx === ordinalWordNumber.value),
 )
 </script>
+
 <template>
   <BaseTemplate>
     <template #header>
