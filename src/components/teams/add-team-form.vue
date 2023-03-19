@@ -23,7 +23,7 @@ function submit() {
     <div
       class="space-x-3 p-3 flex items-center bg-white rounded-[0.625rem] tablet:p-4 tablet:space-x-4"
     >
-      <Avatar :src="avatarSVG" :alt="title" />
+      <Avatar :src="avatarSVG" :alt="username" />
       <input
         autofocus
         v-model="title"
